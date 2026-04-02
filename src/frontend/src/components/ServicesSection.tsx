@@ -1,3 +1,4 @@
+import { useHeadingReveal } from "../hooks/useHeadingReveal";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const services = [
@@ -34,13 +35,14 @@ const services = [
 ];
 
 export function ServicesSection() {
+  const headingRef = useHeadingReveal<HTMLDivElement>();
   const ref = useScrollAnimation<HTMLDivElement>();
 
   return (
     <section id="services" className="py-24 md:py-32 bg-cream">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        {/* Section heading */}
-        <div className="text-center mb-16">
+        {/* Animated section heading */}
+        <div ref={headingRef} className="text-center mb-16">
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-rose mb-4">
             What We Offer
           </p>
@@ -78,7 +80,6 @@ export function ServicesSection() {
                 }}
                 aria-hidden="true"
               />
-
               <div
                 className="text-5xl mb-5 inline-block transition-all duration-300 group-hover:scale-110 group-hover:text-6xl"
                 role="img"
@@ -86,15 +87,12 @@ export function ServicesSection() {
               >
                 {service.icon}
               </div>
-
               <h3 className="font-display text-xl font-semibold text-tulip-mauve mb-3 leading-tight">
                 {service.title}
               </h3>
               <p className="font-body text-sm text-foreground/60 leading-relaxed">
                 {service.line}
               </p>
-
-              {/* Corner decoration */}
               <div
                 className="absolute bottom-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{

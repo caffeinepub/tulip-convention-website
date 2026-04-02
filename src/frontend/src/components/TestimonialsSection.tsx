@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useHeadingReveal } from "../hooks/useHeadingReveal";
 
 const reviews = [
   {
@@ -49,6 +50,7 @@ function StarDisplay({ rating }: { rating: number }) {
 }
 
 export function TestimonialsSection() {
+  const headingRef = useHeadingReveal<HTMLDivElement>();
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -97,8 +99,8 @@ export function TestimonialsSection() {
       style={{ backgroundColor: "oklch(0.19 0.085 8)" }}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        {/* Heading */}
-        <div className="text-center mb-16">
+        {/* Animated heading */}
+        <div ref={headingRef} className="text-center mb-16">
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-gold/90 mb-4">
             Real Experiences
           </p>

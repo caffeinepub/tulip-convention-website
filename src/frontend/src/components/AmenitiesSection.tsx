@@ -1,3 +1,4 @@
+import { useHeadingReveal } from "../hooks/useHeadingReveal";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const amenities = [
@@ -12,13 +13,14 @@ const amenities = [
 ];
 
 export function AmenitiesSection() {
+  const headingRef = useHeadingReveal<HTMLDivElement>();
   const ref = useScrollAnimation<HTMLDivElement>();
 
   return (
     <section id="amenities" className="py-20 md:py-28 bg-cream">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
-        {/* Heading */}
-        <div className="text-center mb-12">
+        {/* Animated heading */}
+        <div ref={headingRef} className="text-center mb-12">
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-rose mb-4">
             Everything You Need
           </p>
@@ -80,7 +82,6 @@ export function AmenitiesSection() {
           </div>
         </div>
 
-        {/* Punchy tagline */}
         <p className="text-center font-display text-lg md:text-xl italic text-tulip-mauve/60 mt-12">
           Everything in place so you can focus on the moments that matter.
         </p>

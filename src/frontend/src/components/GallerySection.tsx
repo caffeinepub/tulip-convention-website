@@ -1,5 +1,6 @@
 import { X } from "lucide-react";
 import { useState } from "react";
+import { useHeadingReveal } from "../hooks/useHeadingReveal";
 
 const galleryImages = [
   {
@@ -41,6 +42,7 @@ const galleryImages = [
 ];
 
 export function GallerySection() {
+  const headingRef = useHeadingReveal<HTMLDivElement>();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const closeLightbox = () => setLightboxIndex(null);
@@ -60,8 +62,8 @@ export function GallerySection() {
       style={{ backgroundColor: "oklch(0.17 0.08 12)" }}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        {/* Heading */}
-        <div className="text-center mb-16">
+        {/* Animated heading */}
+        <div ref={headingRef} className="text-center mb-16">
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-gold/90 mb-4">
             Visual Stories
           </p>
@@ -92,13 +94,24 @@ export function GallerySection() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
                 loading="lazy"
               />
-              {/* Dark overlay + gold tint on hover */}
+              {/* Deep plum overlay (no black) + gold tint on hover */}
               <div
-                className="absolute inset-0 bg-black/30 group-hover:bg-tulip-gold/20 transition-colors duration-400"
+                className="absolute inset-0 transition-colors duration-400"
+                style={{
+                  background: "oklch(0.15 0.06 10 / 0.35)",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background =
+                    "oklch(0.76 0.16 65 / 0.22)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background =
+                    "oklch(0.15 0.06 10 / 0.35)";
+                }}
                 aria-hidden="true"
               />
-              {/* Label with gold glow on hover */}
-              <div className="absolute inset-0 flex items-end p-4">
+              {/* Label */}
+              <div className="absolute inset-0 flex items-end p-4 pointer-events-none">
                 <span
                   className="font-display text-sm font-semibold tracking-widest uppercase text-tulip-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
                   style={{
@@ -109,7 +122,7 @@ export function GallerySection() {
                   {img.label}
                 </span>
               </div>
-              {/* Gold inset border ring on hover – 2px */}
+              {/* Gold inset border ring on hover */}
               <div
                 className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
@@ -122,11 +135,12 @@ export function GallerySection() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox — deep plum backdrop instead of black */}
       {lightboxIndex !== null && (
         <dialog
           open
-          className="fixed inset-0 z-50 bg-black/92 flex items-center justify-center p-4 m-0 max-w-none max-h-none w-full h-full border-none"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 m-0 max-w-none max-h-none w-full h-full border-none"
+          style={{ background: "oklch(0.12 0.05 10 / 0.95)" }}
           aria-label="Image lightbox"
           data-ocid="gallery.modal"
           onKeyDown={(e) => {
@@ -137,7 +151,7 @@ export function GallerySection() {
         >
           <button
             type="button"
-            className="absolute top-5 right-5 text-white hover:text-tulip-gold transition-colors p-2"
+            className="absolute top-5 right-5 text-tulip-cream/80 hover:text-tulip-gold transition-colors p-2"
             onClick={closeLightbox}
             aria-label="Close lightbox"
             data-ocid="gallery.close_button"
@@ -146,7 +160,7 @@ export function GallerySection() {
           </button>
           <button
             type="button"
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-tulip-gold transition-colors p-3 text-4xl leading-none"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-tulip-cream/80 hover:text-tulip-gold transition-colors p-3 text-4xl leading-none"
             onClick={prev}
             aria-label="Previous image"
           >
@@ -154,7 +168,7 @@ export function GallerySection() {
           </button>
           <button
             type="button"
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-tulip-gold transition-colors p-3 text-4xl leading-none"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-tulip-cream/80 hover:text-tulip-gold transition-colors p-3 text-4xl leading-none"
             onClick={next}
             aria-label="Next image"
           >

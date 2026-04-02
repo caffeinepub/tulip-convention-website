@@ -1,3 +1,4 @@
+import { useHeadingReveal } from "../hooks/useHeadingReveal";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const stats = [
@@ -8,6 +9,7 @@ const stats = [
 ];
 
 export function AboutSection() {
+  const headingRef = useHeadingReveal<HTMLDivElement>();
   const leftRef = useScrollAnimation<HTMLDivElement>();
   const rightRef = useScrollAnimation<HTMLDivElement>();
 
@@ -18,6 +20,19 @@ export function AboutSection() {
       style={{ backgroundColor: "oklch(0.19 0.085 8)" }}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        {/* Animated heading */}
+        <div ref={headingRef} className="text-center mb-14">
+          <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-gold/90 mb-3">
+            Our Story
+          </p>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-tulip-cream">
+            About{" "}
+            <span className="italic font-semibold text-tulip-gold text-glow-gold-strong">
+              Tulip
+            </span>
+          </h2>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* LEFT — Quote + intro */}
           <div
@@ -25,9 +40,6 @@ export function AboutSection() {
             className="animate-slide-left"
             style={{ animationFillMode: "both" }}
           >
-            <p className="font-body text-xs tracking-[0.25em] uppercase text-tulip-gold opacity-95 mb-6">
-              Our Story
-            </p>
             <blockquote className="font-display text-3xl sm:text-4xl md:text-5xl font-light italic text-tulip-cream leading-tight mb-8">
               &ldquo;Creating unforgettable
               <br />
@@ -85,7 +97,6 @@ export function AboutSection() {
 
           {/* RIGHT — Stats grid */}
           <div className="relative">
-            {/* Faint radial glow behind stats */}
             <div
               className="absolute inset-0 pointer-events-none rounded-2xl"
               style={{

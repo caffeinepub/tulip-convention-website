@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { useParallax } from "../hooks/useParallax";
 
 const petalPositions = [
   {
@@ -142,7 +143,6 @@ function TulipFlower({ size }: { size: number }) {
       aria-hidden="true"
       style={{ overflow: "visible" }}
     >
-      {/* Stem */}
       <line
         x1="20"
         y1="65"
@@ -152,19 +152,16 @@ function TulipFlower({ size }: { size: number }) {
         strokeWidth="2"
         strokeLinecap="round"
       />
-      {/* Left leaf */}
       <path
         d="M 20 52 C 10 50 4 44 6 38 C 8 42 14 46 20 46"
         fill="oklch(0.52 0.14 140)"
         opacity="0.85"
       />
-      {/* Right leaf */}
       <path
         d="M 20 50 C 30 47 36 41 34 35 C 32 39 26 44 20 45"
         fill="oklch(0.52 0.14 140)"
         opacity="0.85"
       />
-      {/* Back-left petal */}
       <ellipse
         cx="14"
         cy="26"
@@ -174,7 +171,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.62 0.25 355)"
         opacity="0.75"
       />
-      {/* Back-right petal */}
       <ellipse
         cx="26"
         cy="26"
@@ -184,7 +180,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.62 0.25 355)"
         opacity="0.75"
       />
-      {/* Center-back petal */}
       <ellipse
         cx="20"
         cy="22"
@@ -193,7 +188,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.68 0.22 350)"
         opacity="0.8"
       />
-      {/* Front-left petal */}
       <ellipse
         cx="13"
         cy="31"
@@ -203,7 +197,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.72 0.18 345)"
         opacity="0.9"
       />
-      {/* Front-right petal */}
       <ellipse
         cx="27"
         cy="31"
@@ -213,7 +206,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.72 0.18 345)"
         opacity="0.9"
       />
-      {/* Front-center petal (largest, brightest) */}
       <ellipse
         cx="20"
         cy="32"
@@ -228,6 +220,8 @@ function TulipFlower({ size }: { size: number }) {
 
 export function HeroSection() {
   const contentRef = useRef<HTMLDivElement>(null);
+  // Parallax: background moves at 40% of scroll speed
+  const bgParallaxRef = useParallax<HTMLDivElement>(0.38);
 
   useEffect(() => {
     const el = contentRef.current;
@@ -258,15 +252,25 @@ export function HeroSection() {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage:
-          "url('/assets/generated/hero-banner.dim_1920x1080.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
     >
-      {/* Deep plum/magenta gradient overlay – slightly more open in middle */}
+      {/* Parallax background image layer */}
+      <div
+        ref={bgParallaxRef}
+        className="absolute inset-0 will-change-transform"
+        style={{
+          backgroundImage:
+            "url('/assets/generated/hero-banner.dim_1920x1080.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          // Slightly taller than container so parallax shift doesn't expose edges
+          top: "-8%",
+          bottom: "-8%",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Deep plum/magenta gradient overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -340,7 +344,7 @@ export function HeroSection() {
           <div className="h-px w-8 bg-tulip-gold opacity-70" />
         </div>
 
-        {/* Main headline – bigger, bolder */}
+        {/* Main headline */}
         <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-light text-tulip-cream leading-[0.92] tracking-wide mb-6 text-glow-cream">
           Tulip
           <br />
@@ -374,7 +378,7 @@ export function HeroSection() {
           />
         </div>
 
-        {/* Sub-headline – Parisienne accent font */}
+        {/* Sub-headline */}
         <p className="text-3xl md:text-4xl font-accent text-tulip-gold text-glow-gold mb-12 tracking-wide">
           Your Dream Event Starts Here
         </p>
