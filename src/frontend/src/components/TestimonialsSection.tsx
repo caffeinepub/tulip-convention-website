@@ -32,14 +32,21 @@ const dotKeys = ["dot-0", "dot-1", "dot-2", "dot-3"];
 
 function StarDisplay({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
+    <div className="flex gap-1" aria-label={`${rating} out of 5 stars`}>
       {[1, 2, 3, 4, 5].map((k) => (
         <svg
           key={k}
-          width="14"
-          height="14"
+          width="18"
+          height="18"
           viewBox="0 0 16 16"
-          fill={k <= rating ? "oklch(0.76 0.16 65)" : "rgba(255,255,255,0.25)"}
+          fill={
+            k <= rating ? "oklch(0.68 0.22 12)" : "oklch(0.68 0.22 12 / 0.22)"
+          }
+          style={
+            k <= rating
+              ? { filter: "drop-shadow(0 0 5px oklch(0.68 0.22 12 / 0.8))" }
+              : {}
+          }
           aria-hidden="true"
         >
           <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.35l-3.71 2.2.71-4.13L2 5.5l4.15-.75z" />
