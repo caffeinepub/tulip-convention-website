@@ -121,7 +121,7 @@ export function AboutSection() {
               since 2020.&rdquo;
             </blockquote>
 
-            <p className="font-body text-base text-tulip-cream/85 leading-relaxed mb-8">
+            <p className="font-body text-base gold-shimmer text-glow-gold-strong leading-relaxed mb-8">
               Tulip Convention &amp; Banquet brings elegance and warmth to every
               occasion — from intimate family milestones to grand corporate
               gatherings. Our dedicated team ensures every detail is crafted
