@@ -2,16 +2,37 @@ import { useHeadingReveal } from "../hooks/useHeadingReveal";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const stats = [
-  { number: "500+", label: "Events Hosted" },
-  { number: "24/7", label: "Always Available" },
-  { number: "4.5★", label: "Google Rating" },
-  { number: "100%", label: "Satisfaction" },
+  {
+    number: "500+",
+    label: "Events Hosted",
+    icon: "🎉",
+    desc: "Grand weddings to intimate celebrations",
+  },
+  {
+    number: "24/7",
+    label: "Always Available",
+    icon: "🕐",
+    desc: "Round-the-clock support for your event",
+  },
+  {
+    number: "4.5★",
+    label: "Google Rating",
+    icon: "⭐",
+    desc: "Loved by 21+ verified guests on Google",
+  },
+  {
+    number: "100%",
+    label: "Satisfaction",
+    icon: "✨",
+    desc: "Every event crafted to perfection",
+  },
 ];
 
 export function AboutSection() {
   const headingRef = useHeadingReveal<HTMLDivElement>();
-  const leftRef = useScrollAnimation<HTMLDivElement>();
-  const rightRef = useScrollAnimation<HTMLDivElement>();
+  const imageRef = useScrollAnimation<HTMLDivElement>();
+  const textRef = useScrollAnimation<HTMLDivElement>();
+  const statsRef = useScrollAnimation<HTMLDivElement>();
 
   return (
     <section
@@ -21,7 +42,7 @@ export function AboutSection() {
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Animated heading */}
-        <div ref={headingRef} className="text-center mb-14">
+        <div ref={headingRef} className="text-center mb-16">
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-gold/90 mb-3">
             Our Story
           </p>
@@ -33,14 +54,64 @@ export function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* LEFT — Quote + intro */}
+        {/* Image + Text row */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          {/* Venue image */}
           <div
-            ref={leftRef}
-            className="animate-slide-left"
+            ref={imageRef}
+            className="animate-slide-left relative rounded-2xl overflow-hidden"
+            style={{
+              animationFillMode: "both",
+              boxShadow:
+                "0 0 40px oklch(0.76 0.16 65 / 0.18), 0 8px 40px oklch(0.16 0.07 10 / 0.6)",
+            }}
+          >
+            {/* Gold border glow frame */}
+            <div
+              className="absolute inset-0 rounded-2xl pointer-events-none z-10"
+              style={{
+                border: "1px solid oklch(0.76 0.16 65 / 0.35)",
+                boxShadow: "inset 0 0 32px oklch(0.76 0.16 65 / 0.07)",
+              }}
+              aria-hidden="true"
+            />
+            <img
+              src="/assets/generated/gallery-exterior.dim_600x400.jpg"
+              alt="Tulip Convention & Banquet venue exterior"
+              className="w-full h-72 lg:h-96 object-cover"
+            />
+            {/* Subtle gradient overlay on image */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent 50%, oklch(0.16 0.07 10 / 0.65) 100%)",
+              }}
+              aria-hidden="true"
+            />
+            {/* Floating label */}
+            <div className="absolute bottom-4 left-4 z-20">
+              <span
+                className="font-body text-xs tracking-[0.2em] uppercase px-4 py-2 rounded-full"
+                style={{
+                  backgroundColor: "oklch(0.16 0.07 10 / 0.75)",
+                  border: "1px solid oklch(0.76 0.16 65 / 0.4)",
+                  color: "oklch(0.76 0.16 65)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                Hanamkonda, Telangana
+              </span>
+            </div>
+          </div>
+
+          {/* Text content */}
+          <div
+            ref={textRef}
+            className="animate-slide-right"
             style={{ animationFillMode: "both" }}
           >
-            <blockquote className="font-display text-3xl sm:text-4xl md:text-5xl font-light italic text-tulip-cream leading-tight mb-8">
+            <blockquote className="font-display text-3xl sm:text-4xl font-light italic text-tulip-cream leading-tight mb-6">
               &ldquo;Creating unforgettable
               <br />
               <span className="text-tulip-gold font-semibold text-glow-gold-strong">
@@ -50,10 +121,11 @@ export function AboutSection() {
               since 2020.&rdquo;
             </blockquote>
 
-            <p className="font-body text-base text-tulip-cream/90 leading-relaxed mb-8 max-w-md">
+            <p className="font-body text-base text-tulip-cream/85 leading-relaxed mb-8">
               Tulip Convention &amp; Banquet brings elegance and warmth to every
               occasion — from intimate family milestones to grand corporate
-              gatherings.
+              gatherings. Our dedicated team ensures every detail is crafted
+              with care and precision.
             </p>
 
             {/* Google rating badge */}
@@ -94,42 +166,72 @@ export function AboutSection() {
               </span>
             </div>
           </div>
+        </div>
 
-          {/* RIGHT — Stats grid */}
-          <div className="relative">
+        {/* Card-based stats row */}
+        <div
+          ref={statsRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
+          {stats.map((stat, i) => (
             <div
-              className="absolute inset-0 pointer-events-none rounded-2xl"
+              key={stat.label}
+              className="group relative rounded-xl overflow-hidden animate-counter-up"
               style={{
-                background:
-                  "radial-gradient(ellipse 70% 60% at 50% 50%, oklch(0.76 0.16 65 / 0.08) 0%, transparent 70%)",
+                animationDelay: `${i * 0.12}s`,
+                animationFillMode: "both",
+                backgroundColor: "oklch(0.24 0.095 6)",
+                border: "1px solid oklch(0.76 0.16 65 / 0.2)",
+                boxShadow: "0 4px 24px oklch(0.16 0.07 10 / 0.5)",
               }}
-              aria-hidden="true"
-            />
-            <div
-              ref={rightRef}
-              className="grid grid-cols-2 gap-px bg-tulip-gold/10 rounded-2xl overflow-hidden border border-tulip-gold/25"
+              data-ocid={`about.item.${i + 1}`}
             >
-              {stats.map((stat, i) => (
+              {/* Hover glow */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.76 0.16 65 / 0.12) 0%, transparent 70%)",
+                  boxShadow: "inset 0 0 0 1px oklch(0.76 0.16 65 / 0.4)",
+                }}
+                aria-hidden="true"
+              />
+              {/* Top gold accent line */}
+              <div
+                className="h-0.5 w-full"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, oklch(0.76 0.16 65 / 0.7), transparent)",
+                }}
+                aria-hidden="true"
+              />
+              <div className="px-6 py-6 flex items-center gap-5">
+                {/* Icon */}
                 <div
-                  key={stat.label}
-                  className="group flex flex-col items-center justify-center py-12 px-6 text-center animate-counter-up transition-all duration-300 hover:border-glow-gold"
+                  className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center text-xl"
                   style={{
-                    backgroundColor: "oklch(0.24 0.095 6)",
-                    animationDelay: `${i * 0.12}s`,
-                    animationFillMode: "both",
+                    backgroundColor: "oklch(0.76 0.16 65 / 0.12)",
+                    border: "1px solid oklch(0.76 0.16 65 / 0.25)",
                   }}
-                  data-ocid={`about.item.${i + 1}`}
+                  aria-hidden="true"
                 >
-                  <span className="font-display text-5xl md:text-6xl font-bold text-tulip-gold text-glow-gold-strong leading-none mb-2">
-                    {stat.number}
-                  </span>
-                  <span className="font-body text-xs tracking-[0.18em] uppercase text-tulip-cream/75 mt-1">
-                    {stat.label}
-                  </span>
+                  {stat.icon}
                 </div>
-              ))}
+                {/* Text */}
+                <div className="min-w-0">
+                  <div className="font-display text-3xl font-bold text-tulip-gold text-glow-gold-strong leading-none mb-0.5">
+                    {stat.number}
+                  </div>
+                  <div className="font-body text-xs tracking-[0.16em] uppercase text-tulip-cream font-semibold mb-1">
+                    {stat.label}
+                  </div>
+                  <div className="font-body text-[11px] text-tulip-cream/55 leading-snug">
+                    {stat.desc}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

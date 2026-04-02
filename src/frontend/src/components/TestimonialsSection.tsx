@@ -40,11 +40,11 @@ function StarDisplay({ rating }: { rating: number }) {
           height="18"
           viewBox="0 0 16 16"
           fill={
-            k <= rating ? "oklch(0.68 0.22 12)" : "oklch(0.68 0.22 12 / 0.22)"
+            k <= rating ? "oklch(0.75 0.20 30)" : "oklch(0.75 0.20 30 / 0.18)"
           }
           style={
             k <= rating
-              ? { filter: "drop-shadow(0 0 5px oklch(0.68 0.22 12 / 0.8))" }
+              ? { filter: "drop-shadow(0 0 5px oklch(0.75 0.20 30 / 0.8))" }
               : {}
           }
           aria-hidden="true"
@@ -59,6 +59,9 @@ function StarDisplay({ rating }: { rating: number }) {
 export function TestimonialsSection() {
   const headingRef = useHeadingReveal<HTMLDivElement>();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hoveredArrow, setHoveredArrow] = useState<"prev" | "next" | null>(
+    null,
+  );
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -99,11 +102,13 @@ export function TestimonialsSection() {
     reviews[(currentIndex + 1) % reviews.length],
   ];
 
+  const arrowGlow = "0 0 12px oklch(0.76 0.16 65 / 0.5)";
+
   return (
     <section
       id="testimonials"
       className="py-24 md:py-32"
-      style={{ backgroundColor: "oklch(0.19 0.085 8)" }}
+      style={{ backgroundColor: "oklch(0.22 0.10 10)" }}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Animated heading */}
@@ -132,36 +137,40 @@ export function TestimonialsSection() {
                 key={`${review.name}-${currentIndex}-${i}`}
                 className="animate-fade-in-scale border rounded-2xl p-8 flex flex-col"
                 style={{
-                  backgroundColor: "oklch(0.25 0.095 6)",
-                  borderColor: "oklch(0.76 0.16 65 / 0.3)",
+                  backgroundColor: "oklch(0.28 0.11 8)",
+                  borderColor: "oklch(0.76 0.18 20 / 0.45)",
                   animationFillMode: "both",
                   animationDelay: `${i * 0.1}s`,
                 }}
                 data-ocid={`testimonials.item.${i + 1}`}
               >
                 <div
-                  className="font-display text-8xl leading-none text-tulip-gold mb-4"
+                  className="font-display text-8xl leading-none mb-4"
                   style={{
+                    color: "oklch(0.82 0.18 68)",
                     textShadow:
-                      "0 0 20px rgba(220,175,60,0.7), 0 0 40px rgba(220,175,60,0.3)",
+                      "0 0 16px oklch(0.82 0.18 68 / 0.8), 0 0 36px oklch(0.76 0.16 65 / 0.5), 0 0 60px oklch(0.40 0.12 8 / 0.3)",
                   }}
                   aria-hidden="true"
                 >
                   &ldquo;
                 </div>
-                <p className="font-display text-lg italic text-tulip-cream/95 leading-relaxed flex-1">
+                <p className="font-display text-lg italic text-tulip-cream leading-relaxed flex-1">
                   {review.text}
                 </p>
                 <div
                   className="mt-8 pt-6 border-t"
-                  style={{ borderColor: "oklch(0.76 0.16 65 / 0.22)" }}
+                  style={{ borderColor: "oklch(0.76 0.16 65 / 0.35)" }}
                 >
                   <StarDisplay rating={review.rating} />
                   <div className="mt-3">
-                    <div className="font-body font-semibold text-tulip-gold text-sm tracking-wide">
+                    <div
+                      className="font-body font-semibold text-sm tracking-wide"
+                      style={{ color: "oklch(0.82 0.18 68)" }}
+                    >
                       {review.name}
                     </div>
-                    <div className="font-body text-xs text-tulip-cream/65 mt-1 tracking-wider uppercase">
+                    <div className="font-body text-xs text-tulip-cream/80 mt-1 tracking-wider uppercase">
                       {review.event}
                     </div>
                   </div>
@@ -175,7 +184,12 @@ export function TestimonialsSection() {
             <button
               type="button"
               onClick={handlePrev}
+              onMouseEnter={() => setHoveredArrow("prev")}
+              onMouseLeave={() => setHoveredArrow(null)}
               className="w-10 h-10 rounded-full border border-tulip-gold/40 text-tulip-gold hover:bg-tulip-gold hover:text-tulip-brown transition-all duration-200 flex items-center justify-center text-lg"
+              style={{
+                boxShadow: hoveredArrow === "prev" ? arrowGlow : "none",
+              }}
               aria-label="Previous testimonial"
               data-ocid="testimonials.pagination_prev"
             >
@@ -197,10 +211,10 @@ export function TestimonialsSection() {
                     backgroundColor:
                       i === currentIndex
                         ? "oklch(0.76 0.16 65)"
-                        : "oklch(0.76 0.16 65 / 0.35)",
+                        : "oklch(0.72 0.18 12 / 0.4)",
                     boxShadow:
                       i === currentIndex
-                        ? "0 0 8px rgba(220,175,60,0.8)"
+                        ? "0 0 8px oklch(0.76 0.16 65 / 0.8)"
                         : "none",
                   }}
                   aria-label={`Go to testimonial ${i + 1}`}
@@ -210,7 +224,12 @@ export function TestimonialsSection() {
             <button
               type="button"
               onClick={handleNext}
+              onMouseEnter={() => setHoveredArrow("next")}
+              onMouseLeave={() => setHoveredArrow(null)}
               className="w-10 h-10 rounded-full border border-tulip-gold/40 text-tulip-gold hover:bg-tulip-gold hover:text-tulip-brown transition-all duration-200 flex items-center justify-center text-lg"
+              style={{
+                boxShadow: hoveredArrow === "next" ? arrowGlow : "none",
+              }}
               aria-label="Next testimonial"
               data-ocid="testimonials.pagination_next"
             >
