@@ -134,7 +134,7 @@ export function ContactSection() {
   };
 
   const inputBase =
-    "w-full px-4 py-3.5 rounded-lg border text-sm font-body focus:outline-none transition-all duration-200 bg-white text-foreground placeholder:text-foreground/35";
+    "w-full px-4 py-3.5 rounded-lg border text-sm font-body focus:outline-none transition-all duration-200 bg-white text-tulip-gold placeholder:text-tulip-gold/35";
   const inputClass = (field: keyof FormState) =>
     `${inputBase} ${
       errors[field]
@@ -150,10 +150,10 @@ export function ContactSection() {
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-rose mb-4">
             Get In Touch
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl font-light text-tulip-mauve">
+          <h2 className="font-display text-4xl sm:text-5xl font-light text-tulip-gold">
             Book Your <span className="italic font-semibold">Event</span>
           </h2>
-          <p className="font-body text-sm text-foreground/55 mt-4">
+          <p className="font-body text-sm text-tulip-gold/70 mt-4">
             Fill in the details below and we&apos;ll get back to you within 24
             hours.
           </p>
@@ -189,7 +189,7 @@ export function ContactSection() {
             <div>
               <label
                 htmlFor="contact-name"
-                className="block font-body text-xs font-semibold tracking-wider uppercase text-foreground/60 mb-2"
+                className="block font-body text-xs font-semibold tracking-wider uppercase text-tulip-gold/80 mb-2"
               >
                 Full Name <span className="text-tulip-rose">*</span>
               </label>
@@ -222,7 +222,7 @@ export function ContactSection() {
             <div>
               <label
                 htmlFor="contact-phone"
-                className="block font-body text-xs font-semibold tracking-wider uppercase text-foreground/60 mb-2"
+                className="block font-body text-xs font-semibold tracking-wider uppercase text-tulip-gold/80 mb-2"
               >
                 Phone Number <span className="text-tulip-rose">*</span>
               </label>
@@ -255,7 +255,7 @@ export function ContactSection() {
             <div>
               <label
                 htmlFor="contact-event-type"
-                className="block font-body text-xs font-semibold tracking-wider uppercase text-foreground/60 mb-2"
+                className="block font-body text-xs font-semibold tracking-wider uppercase text-tulip-gold/80 mb-2"
               >
                 Event Type <span className="text-tulip-rose">*</span>
               </label>
@@ -290,7 +290,7 @@ export function ContactSection() {
               <div>
                 <label
                   htmlFor="contact-guests"
-                  className="block font-body text-xs font-semibold tracking-wider uppercase text-foreground/60 mb-2"
+                  className="block font-body text-xs font-semibold tracking-wider uppercase text-tulip-gold/80 mb-2"
                 >
                   Guests <span className="text-tulip-rose">*</span>
                 </label>
@@ -320,7 +320,7 @@ export function ContactSection() {
               <div>
                 <label
                   htmlFor="contact-date"
-                  className="block font-body text-xs font-semibold tracking-wider uppercase text-foreground/60 mb-2"
+                  className="block font-body text-xs font-semibold tracking-wider uppercase text-tulip-gold/80 mb-2"
                 >
                   Event Date <span className="text-tulip-rose">*</span>
                 </label>
@@ -385,7 +385,7 @@ export function ContactSection() {
           <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="tel:+919949167731"
-              className="flex items-center gap-2 font-body text-sm text-foreground/60 hover:text-tulip-mauve transition-colors"
+              className="flex items-center gap-2 font-body text-sm text-tulip-gold/70 hover:text-tulip-gold transition-colors"
             >
               <svg
                 width="14"
@@ -401,7 +401,7 @@ export function ContactSection() {
               +91-9949167731
             </a>
             <span className="text-border hidden sm:block">·</span>
-            <span className="flex items-center gap-2 font-body text-sm text-foreground/60">
+            <span className="flex items-center gap-2 font-body text-sm text-tulip-gold/70">
               <svg
                 width="14"
                 height="14"

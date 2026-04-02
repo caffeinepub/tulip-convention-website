@@ -24,7 +24,7 @@ export function AmenitiesSection() {
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-rose mb-4">
             Everything You Need
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl font-light text-tulip-mauve">
+          <h2 className="font-display text-4xl sm:text-5xl font-light text-tulip-gold">
             World-Class{" "}
             <span
               className="italic font-semibold text-glow-gold"
@@ -74,7 +74,7 @@ export function AmenitiesSection() {
                 <span className="text-xl" role="img" aria-label={item.label}>
                   {item.icon}
                 </span>
-                <span className="font-body text-sm font-medium text-foreground/75 group-hover:text-tulip-mauve transition-colors">
+                <span className="font-body text-sm font-medium text-tulip-gold/85 group-hover:text-tulip-gold transition-colors">
                   {item.label}
                 </span>
               </div>
@@ -82,7 +82,7 @@ export function AmenitiesSection() {
           </div>
         </div>
 
-        <p className="text-center font-display text-lg md:text-xl italic text-tulip-mauve/60 mt-12">
+        <p className="text-center font-display text-lg md:text-xl italic text-tulip-gold/60 mt-12">
           Everything in place so you can focus on the moments that matter.
         </p>
       </div>

@@ -47,7 +47,7 @@ export function CTASection() {
             Perfect Event?
           </span>
         </h2>
-        <p className="font-body text-base md:text-lg text-tulip-cream/85 mb-12 max-w-xl mx-auto leading-relaxed">
+        <p className="font-body text-base md:text-lg text-tulip-gold/85 mb-12 max-w-xl mx-auto leading-relaxed">
           Talk to our team today &mdash; we&apos;ll make your vision a reality.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

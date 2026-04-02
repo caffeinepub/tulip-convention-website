@@ -155,7 +155,7 @@ export function TestimonialsSection() {
                 >
                   &ldquo;
                 </div>
-                <p className="font-display text-lg italic text-tulip-cream leading-relaxed flex-1">
+                <p className="font-display text-lg italic text-tulip-gold/90 leading-relaxed flex-1">
                   {review.text}
                 </p>
                 <div
@@ -170,7 +170,7 @@ export function TestimonialsSection() {
                     >
                       {review.name}
                     </div>
-                    <div className="font-body text-xs text-tulip-cream/80 mt-1 tracking-wider uppercase">
+                    <div className="font-body text-xs text-tulip-gold/75 mt-1 tracking-wider uppercase">
                       {review.event}
                     </div>
                   </div>

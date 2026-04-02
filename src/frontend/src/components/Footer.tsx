@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <footer
-      className="text-tulip-cream"
+      className="text-tulip-gold"
       style={{ backgroundColor: "oklch(0.15 0.07 10)" }}
     >
       {/* Decorative top line */}
@@ -48,19 +48,19 @@ export function Footer() {
                 <span className="font-display text-base font-bold text-tulip-gold tracking-[0.35em] text-glow-gold">
                   TULIP
                 </span>
-                <span className="font-body text-[9px] text-tulip-cream/65 tracking-[0.2em] uppercase">
+                <span className="font-body text-[9px] text-tulip-gold/65 tracking-[0.2em] uppercase">
                   Convention &amp; Banquet
                 </span>
               </div>
             </div>
-            <p className="font-accent text-lg text-tulip-cream/75 mb-5">
+            <p className="font-accent text-lg text-tulip-gold/80 mb-5">
               Your Dream Event Starts Here
             </p>
             <div className="flex gap-2.5">
               <button
                 type="button"
                 aria-label="Facebook"
-                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
+                className="p-2 rounded-sm border border-tulip-gold/25 text-tulip-gold/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
                 data-ocid="footer.link"
               >
                 <SiFacebook size={14} />
@@ -68,7 +68,7 @@ export function Footer() {
               <button
                 type="button"
                 aria-label="Instagram"
-                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
+                className="p-2 rounded-sm border border-tulip-gold/25 text-tulip-gold/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
                 data-ocid="footer.link"
               >
                 <SiInstagram size={14} />
@@ -76,7 +76,7 @@ export function Footer() {
               <button
                 type="button"
                 aria-label="YouTube"
-                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
+                className="p-2 rounded-sm border border-tulip-gold/25 text-tulip-gold/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
                 data-ocid="footer.link"
               >
                 <SiYoutube size={14} />
@@ -95,7 +95,7 @@ export function Footer() {
                   <button
                     type="button"
                     onClick={() => handleNavClick(link.href)}
-                    className="font-body text-sm text-tulip-cream/75 hover:text-tulip-gold transition-colors text-left"
+                    className="font-body text-sm text-tulip-gold/75 hover:text-tulip-gold transition-colors text-left"
                     data-ocid="footer.link"
                   >
                     {link.label}
@@ -113,7 +113,7 @@ export function Footer() {
             <div className="space-y-3">
               <a
                 href="tel:+919949167731"
-                className="flex items-center gap-2 font-body text-sm text-tulip-cream/75 hover:text-tulip-gold transition-colors"
+                className="flex items-center gap-2 font-body text-sm text-tulip-gold/75 hover:text-tulip-gold transition-colors"
               >
                 <svg
                   width="12"
@@ -128,7 +128,7 @@ export function Footer() {
                 </svg>
                 +91-9949167731
               </a>
-              <p className="flex items-start gap-2 font-body text-sm text-tulip-cream/70">
+              <p className="flex items-start gap-2 font-body text-sm text-tulip-gold/70">
                 <svg
                   width="12"
                   height="12"
@@ -144,7 +144,7 @@ export function Footer() {
                 </svg>
                 Hanamkonda, Telangana 506001
               </p>
-              <p className="flex items-center gap-2 font-body text-sm text-tulip-cream/70">
+              <p className="flex items-center gap-2 font-body text-sm text-tulip-gold/70">
                 <svg
                   width="12"
                   height="12"
@@ -171,24 +171,24 @@ export function Footer() {
       >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-4">
-            <p className="font-body text-xs text-tulip-cream/60">
+            <p className="font-body text-xs text-tulip-gold/60">
               © {year} Tulip Convention and Banquet.
             </p>
             <a
               href="?page=admin"
-              className="font-body text-xs text-tulip-cream/35 hover:text-tulip-cream/65 transition-opacity"
+              className="font-body text-xs text-tulip-gold/35 hover:text-tulip-gold/65 transition-opacity"
               data-ocid="footer.link"
             >
               Admin
             </a>
           </div>
-          <p className="font-body text-xs text-tulip-cream/50">
+          <p className="font-body text-xs text-tulip-gold/50">
             Built with ❤️ using{" "}
             <a
               href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-tulip-cream/75 transition-colors underline underline-offset-2"
+              className="hover:text-tulip-gold/75 transition-colors underline underline-offset-2"
             >
               caffeine.ai
             </a>

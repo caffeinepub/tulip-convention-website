@@ -46,7 +46,7 @@ export function ServicesSection() {
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-rose mb-4">
             What We Offer
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl font-light text-tulip-mauve leading-tight">
+          <h2 className="font-display text-5xl sm:text-6xl font-light text-tulip-gold leading-tight">
             Events We <span className="italic font-semibold">Host</span>
           </h2>
         </div>
@@ -87,10 +87,10 @@ export function ServicesSection() {
               >
                 {service.icon}
               </div>
-              <h3 className="font-display text-xl font-semibold text-tulip-mauve mb-3 leading-tight">
+              <h3 className="font-display text-xl font-semibold text-tulip-gold mb-3 leading-tight">
                 {service.title}
               </h3>
-              <p className="font-body text-sm text-foreground/60 leading-relaxed">
+              <p className="font-body text-sm text-tulip-gold/75 leading-relaxed">
                 {service.line}
               </p>
               <div

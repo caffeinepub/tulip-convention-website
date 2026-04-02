@@ -161,7 +161,7 @@ export function AboutSection() {
                   />
                 </svg>
               </div>
-              <span className="font-body text-sm text-tulip-cream/90">
+              <span className="font-body text-sm text-tulip-gold/90">
                 4.5 ⭐ on Google &middot; 21 Reviews
               </span>
             </div>
@@ -222,10 +222,10 @@ export function AboutSection() {
                   <div className="font-display text-3xl font-bold text-tulip-gold text-glow-gold-strong leading-none mb-0.5">
                     {stat.number}
                   </div>
-                  <div className="font-body text-xs tracking-[0.16em] uppercase text-tulip-cream font-semibold mb-1">
+                  <div className="font-body text-xs tracking-[0.16em] uppercase text-tulip-gold/90 font-semibold mb-1">
                     {stat.label}
                   </div>
-                  <div className="font-body text-[11px] text-tulip-cream/55 leading-snug">
+                  <div className="font-body text-[11px] text-tulip-gold/55 leading-snug">
                     {stat.desc}
                   </div>
                 </div>
