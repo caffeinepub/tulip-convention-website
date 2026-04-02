@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Tulip Convention – warm mauve/gold palette */
+    --background: 0.95 0.018 75;
+    --foreground: 0.18 0.028 30;
+
+    --card: 1.0 0.0 0;
+    --card-foreground: 0.18 0.028 30;
+
+    --popover: 1.0 0.0 0;
+    --popover-foreground: 0.18 0.028 30;
+
+    --primary: 0.44 0.088 12;
+    --primary-foreground: 0.97 0.01 80;
+
+    --secondary: 0.61 0.075 11;
+    --secondary-foreground: 0.99 0.005 80;
+
+    --muted: 0.93 0.015 70;
+    --muted-foreground: 0.35 0.035 30;
+
+    --accent: 0.73 0.1 70;
+    --accent-foreground: 0.18 0.028 30;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.018 75;
+    --input: 0.88 0.018 75;
+    --ring: 0.44 0.088 12;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.44 0.088 12;
+    --sidebar-foreground: 0.97 0.01 80;
+    --sidebar-primary: 0.73 0.1 70;
+    --sidebar-primary-foreground: 0.23 0.028 30;
+    --sidebar-accent: 0.38 0.07 12;
+    --sidebar-accent-foreground: 0.97 0.01 80;
+    --sidebar-border: 0.38 0.07 12;
+    --sidebar-ring: 0.73 0.1 70;
+
+    /* Custom tulip tokens */
+    --tulip-mauve: 0.44 0.088 12;
+    --tulip-mauve-dark: 0.22 0.045 15;
+    --tulip-rose: 0.61 0.075 11;
+    --tulip-gold: 0.73 0.1 70;
+    --tulip-gold-dark: 0.66 0.095 68;
+    --tulip-cream: 0.97 0.012 75;
+    --tulip-cream-deep: 0.93 0.018 72;
+    --tulip-brown: 0.23 0.028 30;
+    --tulip-dark: 0.14 0.032 20;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Jost", "General Sans", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  }
+
+  .font-body {
+    font-family: "Jost", system-ui, sans-serif;
+  }
+
+  .text-gold {
+    color: oklch(var(--tulip-gold));
+  }
+
+  .text-mauve {
+    color: oklch(var(--tulip-mauve));
+  }
+
+  .bg-mauve {
+    background-color: oklch(var(--tulip-mauve));
+  }
+
+  .bg-mauve-dark {
+    background-color: oklch(var(--tulip-mauve-dark));
+  }
+
+  .bg-gold {
+    background-color: oklch(var(--tulip-gold));
+  }
+
+  .bg-cream {
+    background-color: oklch(var(--tulip-cream));
+  }
+
+  .bg-cream-deep {
+    background-color: oklch(var(--tulip-cream-deep));
+  }
+
+  .bg-dark {
+    background-color: oklch(var(--tulip-dark));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--tulip-gold));
+  }
+
+  .border-mauve {
+    border-color: oklch(var(--tulip-mauve));
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+
+  .animate-float-petal {
+    animation: floatPetal 6s ease-in infinite;
+  }
+
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.9s ease-out forwards;
+  }
+
+  .animate-slide-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .animate-counter-up {
+    animation: counterUp 0.7s ease-out forwards;
+  }
+
+  .section-hidden {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .section-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-hidden {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @keyframes floatPetal {
+    0% {
+      transform: translateY(0) rotate(0deg) translateX(0);
+      opacity: 0.8;
+    }
+    25% {
+      transform: translateY(-30px) rotate(15deg) translateX(12px);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-65px) rotate(-10deg) translateX(-8px);
+      opacity: 0.5;
+    }
+    75% {
+      transform: translateY(-95px) rotate(20deg) translateX(15px);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translateY(-130px) rotate(5deg) translateX(3px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.93);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-44px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(44px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes counterUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes goldGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 10px 2px rgba(200, 163, 90, 0.35), 0 0 22px 4px
+        rgba(200, 163, 90, 0.18);
+    }
+    50% {
+      box-shadow: 0 0 22px 7px rgba(200, 163, 90, 0.65), 0 0 44px 12px
+        rgba(200, 163, 90, 0.3);
+    }
+  }
+
+  @keyframes greenGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 12px 3px rgba(37, 211, 102, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 24px 8px rgba(37, 211, 102, 0.8);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  @keyframes chevronBounce {
+    0%,
+    100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    50% {
+      transform: translateY(10px) translateX(-50%);
+    }
+  }
+
+  .glow-gold {
+    animation: goldGlow 2.5s ease-in-out infinite;
+  }
+
+  .glow-green {
+    animation: greenGlow 1.8s ease-in-out infinite;
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 14px rgba(200, 163, 90, 0.6), 0 0 28px
+      rgba(200, 163, 90, 0.3);
+  }
+
+  .text-glow-cream {
+    text-shadow: 0 0 18px rgba(255, 245, 220, 0.5), 0 1px 4px
+      rgba(0, 0, 0, 0.45);
+  }
+
+  .card-glow {
+    box-shadow: 0 4px 24px rgba(200, 163, 90, 0.1), 0 1px 4px
+      rgba(0, 0, 0, 0.06);
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 8px 40px rgba(200, 163, 90, 0.28), 0 0 0 1px
+      rgba(200, 163, 90, 0.25);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .navbar-glow {
+    box-shadow: 0 2px 24px rgba(200, 163, 90, 0.2);
+  }
+
+  .tulip-gold-border {
+    border-color: oklch(var(--tulip-gold) / 0.3);
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      120deg,
+      oklch(0.73 0.1 70) 0%,
+      oklch(0.82 0.08 80) 40%,
+      oklch(0.73 0.1 70) 60%,
+      oklch(0.66 0.095 68) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3.5s linear infinite;
+  }
+}
