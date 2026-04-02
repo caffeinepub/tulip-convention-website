@@ -130,11 +130,12 @@ export function Navbar() {
           {/* Mobile hamburger */}
           <button
             type="button"
-            className="lg:hidden p-2 text-tulip-cream hover:text-tulip-gold transition-colors"
+            className="lg:hidden p-2 text-tulip-gold hover:text-tulip-gold-dark transition-colors"
             onClick={() => setIsOpen((v) => !v)}
             aria-expanded={isOpen}
             aria-label="Toggle navigation menu"
             data-ocid="nav.toggle"
+            style={{ filter: "drop-shadow(0 0 6px rgba(220,175,60,0.8))" }}
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
