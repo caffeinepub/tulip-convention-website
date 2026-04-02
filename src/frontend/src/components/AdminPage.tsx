@@ -140,7 +140,7 @@ function LoginScreen({ onLogin }: { onLogin: () => void }) {
         }`}
         style={{
           boxShadow:
-            "0 8px 48px rgba(200,163,90,0.25), 0 2px 8px rgba(0,0,0,0.08)",
+            "0 8px 48px rgba(200,163,90,0.25), 0 2px 8px rgba(80,20,60,0.12)",
         }}
         data-ocid="admin.panel"
       >
