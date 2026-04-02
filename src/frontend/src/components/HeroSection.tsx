@@ -152,21 +152,18 @@ function TulipFlower({ size }: { size: number }) {
         strokeWidth="2"
         strokeLinecap="round"
       />
-
       {/* Left leaf */}
       <path
         d="M 20 52 C 10 50 4 44 6 38 C 8 42 14 46 20 46"
         fill="oklch(0.52 0.14 140)"
         opacity="0.85"
       />
-
       {/* Right leaf */}
       <path
         d="M 20 50 C 30 47 36 41 34 35 C 32 39 26 44 20 45"
         fill="oklch(0.52 0.14 140)"
         opacity="0.85"
       />
-
       {/* Back-left petal */}
       <ellipse
         cx="14"
@@ -177,7 +174,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.62 0.25 355)"
         opacity="0.75"
       />
-
       {/* Back-right petal */}
       <ellipse
         cx="26"
@@ -188,7 +184,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.62 0.25 355)"
         opacity="0.75"
       />
-
       {/* Center-back petal */}
       <ellipse
         cx="20"
@@ -198,7 +193,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.68 0.22 350)"
         opacity="0.8"
       />
-
       {/* Front-left petal */}
       <ellipse
         cx="13"
@@ -209,7 +203,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.72 0.18 345)"
         opacity="0.9"
       />
-
       {/* Front-right petal */}
       <ellipse
         cx="27"
@@ -220,7 +213,6 @@ function TulipFlower({ size }: { size: number }) {
         fill="oklch(0.72 0.18 345)"
         opacity="0.9"
       />
-
       {/* Front-center petal (largest, brightest) */}
       <ellipse
         cx="20"
@@ -274,22 +266,22 @@ export function HeroSection() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Deep plum/magenta gradient overlay */}
+      {/* Deep plum/magenta gradient overlay – slightly more open in middle */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(45,8,35,0.88) 0%, rgba(80,15,55,0.65) 45%, rgba(45,8,35,0.92) 100%)",
+            "linear-gradient(180deg, rgba(45,8,35,0.90) 0%, rgba(80,15,55,0.55) 45%, rgba(45,8,35,0.94) 100%)",
         }}
         aria-hidden="true"
       />
 
-      {/* Soft pink/magenta radial glow center */}
+      {/* Soft radial glow center */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200,60,130,0.15) 0%, rgba(210,100,160,0.08) 40%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200,60,130,0.18) 0%, rgba(210,100,160,0.10) 40%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -304,9 +296,9 @@ export function HeroSection() {
             bottom: p.bottom,
             animationDelay: p.delay,
             animationDuration: p.duration,
-            opacity: 0.7,
+            opacity: 0.75,
             filter:
-              "drop-shadow(0 0 6px rgba(220,80,150,0.55)) drop-shadow(0 0 2px rgba(255,140,200,0.3))",
+              "drop-shadow(0 0 8px rgba(220,80,150,0.7)) drop-shadow(0 0 3px rgba(255,140,200,0.4))",
           }}
           aria-hidden="true"
         >
@@ -319,7 +311,17 @@ export function HeroSection() {
         className="absolute top-0 left-0 right-0 h-px pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, rgba(200,163,90,0.5) 40%, rgba(200,163,90,0.5) 60%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, rgba(220,175,60,0.65) 40%, rgba(220,175,60,0.65) 60%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Headline radial glow ring */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 38% at 50% 42%, rgba(220,175,60,0.10) 0%, transparent 65%)",
         }}
         aria-hidden="true"
       />
@@ -331,18 +333,20 @@ export function HeroSection() {
       >
         {/* Location tag */}
         <div className="inline-flex items-center gap-2 mb-8">
-          <div className="h-px w-8 bg-tulip-gold opacity-60" />
-          <span className="text-tulip-gold font-body text-xs tracking-[0.28em] uppercase opacity-90">
+          <div className="h-px w-8 bg-tulip-gold opacity-70" />
+          <span className="text-tulip-gold font-body text-xs tracking-[0.28em] uppercase opacity-95">
             Hanamkonda, Telangana
           </span>
-          <div className="h-px w-8 bg-tulip-gold opacity-60" />
+          <div className="h-px w-8 bg-tulip-gold opacity-70" />
         </div>
 
-        {/* Main headline */}
-        <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-tulip-cream leading-[0.95] tracking-wide mb-6 text-glow-cream">
+        {/* Main headline – bigger, bolder */}
+        <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-light text-tulip-cream leading-[0.92] tracking-wide mb-6 text-glow-cream">
           Tulip
           <br />
-          <span className="gold-shimmer font-semibold italic">Convention</span>
+          <span className="gold-shimmer font-semibold italic text-glow-gold-strong">
+            Convention
+          </span>
           <br />
           <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-widest">
             &amp; Banquet
@@ -355,23 +359,23 @@ export function HeroSection() {
             className="h-px w-16 md:w-24"
             style={{
               background:
-                "linear-gradient(90deg, transparent, oklch(0.73 0.1 70))",
+                "linear-gradient(90deg, transparent, oklch(0.76 0.16 65))",
             }}
           />
-          <span className="text-tulip-gold opacity-80" aria-hidden="true">
+          <span className="text-tulip-gold opacity-90" aria-hidden="true">
             ✦
           </span>
           <div
             className="h-px w-16 md:w-24"
             style={{
               background:
-                "linear-gradient(90deg, oklch(0.73 0.1 70), transparent)",
+                "linear-gradient(90deg, oklch(0.76 0.16 65), transparent)",
             }}
           />
         </div>
 
-        {/* Sub-headline */}
-        <p className="text-tulip-cream font-display text-xl md:text-2xl font-light italic mb-12 opacity-85 tracking-wide">
+        {/* Sub-headline – Parisienne accent font */}
+        <p className="text-3xl md:text-4xl font-accent text-tulip-gold text-glow-gold mb-12 tracking-wide">
           Your Dream Event Starts Here
         </p>
 
@@ -380,7 +384,11 @@ export function HeroSection() {
           <button
             type="button"
             onClick={handleEnquire}
-            className="group px-10 py-4 font-body font-medium text-sm tracking-[0.12em] uppercase bg-tulip-gold text-tulip-brown hover:bg-tulip-gold-dark transition-all duration-300 rounded-sm shadow-gold glow-gold hover:-translate-y-0.5"
+            className="group px-10 py-4 font-body font-semibold text-sm tracking-[0.18em] uppercase bg-tulip-gold text-tulip-brown hover:bg-tulip-gold-dark transition-all duration-300 rounded-sm shadow-gold glow-gold hover:-translate-y-0.5"
+            style={{
+              boxShadow:
+                "0 0 24px rgba(220,175,60,0.5), inset 0 1px 0 rgba(255,255,255,0.2)",
+            }}
             data-ocid="hero.primary_button"
           >
             Book Your Event
@@ -388,7 +396,7 @@ export function HeroSection() {
           <button
             type="button"
             onClick={handleExplore}
-            className="px-10 py-4 font-body font-medium text-sm tracking-[0.12em] uppercase border border-tulip-cream/50 text-tulip-cream hover:border-tulip-gold hover:text-tulip-gold transition-all duration-300 rounded-sm backdrop-blur-sm hover:-translate-y-0.5"
+            className="px-10 py-4 font-body font-semibold text-sm tracking-[0.18em] uppercase border border-tulip-cream/50 text-tulip-cream hover:border-tulip-gold hover:text-tulip-gold transition-all duration-300 rounded-sm backdrop-blur-sm hover:-translate-y-0.5"
             data-ocid="hero.secondary_button"
           >
             Explore Venue
@@ -396,7 +404,7 @@ export function HeroSection() {
         </div>
 
         {/* Bottom location badge */}
-        <div className="mt-16 inline-flex items-center gap-2 text-xs text-tulip-cream/60 font-body tracking-wider">
+        <div className="mt-16 inline-flex items-center gap-2 text-xs text-tulip-cream/65 font-body tracking-wider">
           <svg
             width="12"
             height="12"
@@ -424,13 +432,13 @@ export function HeroSection() {
           height="22"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="oklch(0.73 0.1 70)"
+          stroke="oklch(0.76 0.16 65)"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
           role="img"
           aria-label="Scroll down"
-          style={{ filter: "drop-shadow(0 0 6px rgba(200,163,90,0.7))" }}
+          style={{ filter: "drop-shadow(0 0 8px rgba(220,175,60,0.85))" }}
         >
           <title>Scroll down</title>
           <path d="M6 9l6 6 6-6" />

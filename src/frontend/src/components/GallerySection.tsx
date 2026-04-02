@@ -57,7 +57,7 @@ export function GallerySection() {
     <section
       id="gallery"
       className="py-24 md:py-32"
-      style={{ backgroundColor: "oklch(0.20 0.07 15)" }}
+      style={{ backgroundColor: "oklch(0.17 0.08 12)" }}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Heading */}
@@ -67,7 +67,7 @@ export function GallerySection() {
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-tulip-cream">
             Our{" "}
-            <span className="italic font-semibold text-tulip-gold">
+            <span className="italic font-semibold text-tulip-gold text-glow-gold">
               Gallery
             </span>
           </h2>
@@ -97,17 +97,23 @@ export function GallerySection() {
                 className="absolute inset-0 bg-black/30 group-hover:bg-tulip-gold/20 transition-colors duration-400"
                 aria-hidden="true"
               />
-              {/* Label */}
+              {/* Label with gold glow on hover */}
               <div className="absolute inset-0 flex items-end p-4">
-                <span className="font-display text-sm font-semibold tracking-widest uppercase text-tulip-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg">
+                <span
+                  className="font-display text-sm font-semibold tracking-widest uppercase text-tulip-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg"
+                  style={{
+                    textShadow:
+                      "0 0 12px rgba(220,175,60,0.9), 0 0 24px rgba(220,175,60,0.4)",
+                  }}
+                >
                   {img.label}
                 </span>
               </div>
-              {/* Gold border on hover */}
+              {/* Gold inset border ring on hover – 2px */}
               <div
                 className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
-                  boxShadow: "inset 0 0 0 1.5px oklch(0.73 0.1 70 / 0.7)",
+                  boxShadow: "inset 0 0 0 2px oklch(0.76 0.16 65 / 0.8)",
                 }}
                 aria-hidden="true"
               />
@@ -158,7 +164,7 @@ export function GallerySection() {
             src={galleryImages[lightboxIndex].src}
             alt={galleryImages[lightboxIndex].alt}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
-            style={{ boxShadow: "0 0 60px rgba(200,163,90,0.25)" }}
+            style={{ boxShadow: "0 0 60px rgba(220,175,60,0.32)" }}
           />
           <p className="absolute bottom-5 left-1/2 -translate-x-1/2 text-tulip-cream/75 text-xs font-body tracking-widest uppercase">
             {galleryImages[lightboxIndex].label} &middot; {lightboxIndex + 1} /{" "}

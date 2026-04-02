@@ -44,7 +44,7 @@ export function ServicesSection() {
           <p className="font-body text-xs tracking-[0.28em] uppercase text-tulip-rose mb-4">
             What We Offer
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-tulip-mauve leading-tight">
+          <h2 className="font-display text-5xl sm:text-6xl font-light text-tulip-mauve leading-tight">
             Events We <span className="italic font-semibold">Host</span>
           </h2>
         </div>
@@ -57,7 +57,16 @@ export function ServicesSection() {
           {services.map((service, i) => (
             <article
               key={service.title}
-              className="group relative bg-white border border-tulip-gold/20 rounded-xl p-8 hover:-translate-y-1.5 hover:border-tulip-gold/60 hover:shadow-gold transition-all duration-300 cursor-default overflow-hidden"
+              className="group relative bg-white border border-tulip-gold/20 rounded-xl p-8 hover:-translate-y-2 hover:border-tulip-gold/80 transition-all duration-300 cursor-default overflow-hidden"
+              style={{ boxShadow: "0 2px 12px rgba(220,175,60,0.06)" }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow =
+                  "0 8px 40px rgba(220,175,60,0.3), 0 0 0 1.5px rgba(220,175,60,0.6)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.boxShadow =
+                  "0 2px 12px rgba(220,175,60,0.06)";
+              }}
               data-ocid={`services.item.${i + 1}`}
             >
               {/* Gold left accent bar */}
@@ -65,13 +74,13 @@ export function ServicesSection() {
                 className="absolute left-0 top-4 bottom-4 w-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
                 style={{
                   background:
-                    "linear-gradient(180deg, transparent, oklch(0.73 0.1 70), transparent)",
+                    "linear-gradient(180deg, transparent, oklch(0.76 0.16 65), transparent)",
                 }}
                 aria-hidden="true"
               />
 
               <div
-                className="text-5xl mb-5 inline-block transition-transform duration-300 group-hover:scale-110"
+                className="text-5xl mb-5 inline-block transition-all duration-300 group-hover:scale-110 group-hover:text-6xl"
                 role="img"
                 aria-label={service.title}
               >
@@ -90,7 +99,7 @@ export function ServicesSection() {
                 className="absolute bottom-0 right-0 w-16 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(circle at bottom right, oklch(0.73 0.1 70 / 0.1), transparent 70%)",
+                    "radial-gradient(circle at bottom right, oklch(0.76 0.16 65 / 0.12), transparent 70%)",
                 }}
                 aria-hidden="true"
               />

@@ -15,7 +15,7 @@ export function AboutSection() {
     <section
       id="about"
       className="py-24 md:py-32"
-      style={{ backgroundColor: "oklch(0.22 0.08 10)" }}
+      style={{ backgroundColor: "oklch(0.19 0.085 8)" }}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -25,13 +25,13 @@ export function AboutSection() {
             className="animate-slide-left"
             style={{ animationFillMode: "both" }}
           >
-            <p className="font-body text-xs tracking-[0.25em] uppercase text-tulip-gold opacity-90 mb-6">
+            <p className="font-body text-xs tracking-[0.25em] uppercase text-tulip-gold opacity-95 mb-6">
               Our Story
             </p>
             <blockquote className="font-display text-3xl sm:text-4xl md:text-5xl font-light italic text-tulip-cream leading-tight mb-8">
               &ldquo;Creating unforgettable
               <br />
-              <span className="text-tulip-gold font-semibold">
+              <span className="text-tulip-gold font-semibold text-glow-gold-strong">
                 celebrations
               </span>
               <br />
@@ -45,7 +45,7 @@ export function AboutSection() {
             </p>
 
             {/* Google rating badge */}
-            <div className="inline-flex items-center gap-3 border border-tulip-gold/30 rounded-full px-5 py-2.5">
+            <div className="inline-flex items-center gap-3 border border-tulip-gold/40 rounded-full px-5 py-2.5">
               <div className="flex gap-0.5">
                 {[1, 2, 3, 4].map((k) => (
                   <svg
@@ -53,7 +53,7 @@ export function AboutSection() {
                     width="13"
                     height="13"
                     viewBox="0 0 16 16"
-                    fill="oklch(0.73 0.1 70)"
+                    fill="oklch(0.76 0.16 65)"
                     aria-hidden="true"
                   >
                     <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.35l-3.71 2.2.71-4.13L2 5.5l4.15-.75z" />
@@ -67,7 +67,7 @@ export function AboutSection() {
                 >
                   <defs>
                     <linearGradient id="half-about">
-                      <stop offset="50%" stopColor="oklch(0.73 0.1 70)" />
+                      <stop offset="50%" stopColor="oklch(0.76 0.16 65)" />
                       <stop offset="50%" stopColor="rgba(255,255,255,0.2)" />
                     </linearGradient>
                   </defs>
@@ -84,29 +84,40 @@ export function AboutSection() {
           </div>
 
           {/* RIGHT — Stats grid */}
-          <div
-            ref={rightRef}
-            className="grid grid-cols-2 gap-px bg-tulip-gold/10 rounded-2xl overflow-hidden border border-tulip-gold/20"
-          >
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center justify-center py-12 px-6 text-center animate-counter-up"
-                style={{
-                  backgroundColor: "oklch(0.27 0.09 8)",
-                  animationDelay: `${i * 0.12}s`,
-                  animationFillMode: "both",
-                }}
-                data-ocid={`about.item.${i + 1}`}
-              >
-                <span className="font-display text-4xl md:text-5xl font-semibold text-tulip-gold text-glow-gold leading-none mb-2">
-                  {stat.number}
-                </span>
-                <span className="font-body text-xs tracking-[0.18em] uppercase text-tulip-cream/75 mt-1">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          <div className="relative">
+            {/* Faint radial glow behind stats */}
+            <div
+              className="absolute inset-0 pointer-events-none rounded-2xl"
+              style={{
+                background:
+                  "radial-gradient(ellipse 70% 60% at 50% 50%, oklch(0.76 0.16 65 / 0.08) 0%, transparent 70%)",
+              }}
+              aria-hidden="true"
+            />
+            <div
+              ref={rightRef}
+              className="grid grid-cols-2 gap-px bg-tulip-gold/10 rounded-2xl overflow-hidden border border-tulip-gold/25"
+            >
+              {stats.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className="group flex flex-col items-center justify-center py-12 px-6 text-center animate-counter-up transition-all duration-300 hover:border-glow-gold"
+                  style={{
+                    backgroundColor: "oklch(0.24 0.095 6)",
+                    animationDelay: `${i * 0.12}s`,
+                    animationFillMode: "both",
+                  }}
+                  data-ocid={`about.item.${i + 1}`}
+                >
+                  <span className="font-display text-5xl md:text-6xl font-bold text-tulip-gold text-glow-gold-strong leading-none mb-2">
+                    {stat.number}
+                  </span>
+                  <span className="font-body text-xs tracking-[0.18em] uppercase text-tulip-cream/75 mt-1">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

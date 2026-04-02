@@ -79,9 +79,10 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Cormorant Garamond", "Playfair Display", "Georgia", "serif"],
-        body: ["Jost", "system-ui", "sans-serif"],
-        sans: ["Jost", "system-ui", "sans-serif"],
+        display: ["Playfair Display", "Georgia", "serif"],
+        body: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+        accent: ["Parisienne", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -92,7 +93,7 @@ export default {
         xs: "0 1px 2px 0 rgba(58,42,37,0.05)",
         card: "0 2px 16px 0 rgba(58,42,37,0.08), 0 1px 4px 0 rgba(58,42,37,0.04)",
         "card-hover": "0 8px 32px 0 rgba(58,42,37,0.14), 0 2px 8px 0 rgba(58,42,37,0.06)",
-        gold: "0 4px 24px 0 rgba(200,163,90,0.2)",
+        gold: "0 6px 32px 0 rgba(220,175,60,0.32), 0 0 0 1px rgba(220,175,60,0.12)",
       },
       keyframes: {
         "accordion-down": {

@@ -35,7 +35,6 @@ const EMPTY_FORM: FormState = {
 type FormErrors = Partial<Record<keyof FormState, string>>;
 
 // Send enquiry data to Google Sheets via fetch with no-cors (POST).
-// Google Apps Script doPost() handles FormData reliably.
 function sendToGoogleSheets(data: FormState): void {
   const formData = new FormData();
   formData.append("name", data.name);
@@ -48,13 +47,12 @@ function sendToGoogleSheets(data: FormState): void {
     new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
   );
 
-  // no-cors POST -- browser won't read the response, but Apps Script receives it
   fetch(GOOGLE_SHEETS_SCRIPT_URL, {
     method: "POST",
     mode: "no-cors",
     body: formData,
   }).catch(() => {
-    // Fire-and-forget: don't block form submission if Sheets fails
+    // Fire-and-forget
   });
 }
 
@@ -112,14 +110,10 @@ export function ContactSection() {
     setSubmitting(true);
     setStatus("idle");
 
-    // Fire-and-forget Google Sheets export (non-blocking)
     sendToGoogleSheets(form);
 
-    // Capture form data before reset
     const submittedForm = { ...form };
 
-    // Try to save to backend, but never surface backend errors to the user.
-    // Google Sheets is the primary data capture; backend is a secondary store.
     try {
       const actor = await createActorWithConfig();
       await actor.submitEnquiry(
@@ -130,12 +124,10 @@ export function ContactSection() {
         submittedForm.eventDate,
       );
     } catch (err) {
-      // Backend failed -- save locally as backup and continue showing success
       console.error("[ContactSection] submitEnquiry failed (backend):", err);
       saveToLocalStorage(submittedForm);
     }
 
-    // Always show success -- data is captured via Google Sheets
     setStatus("success");
     setForm(EMPTY_FORM);
     setSubmitting(false);
@@ -147,7 +139,7 @@ export function ContactSection() {
     `${inputBase} ${
       errors[field]
         ? "border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200"
-        : "border-border hover:border-tulip-gold/50 focus:border-tulip-gold focus:ring-2 focus:ring-tulip-gold/20"
+        : "border-border hover:border-tulip-gold/50 focus:border-tulip-gold focus:ring-2 focus:ring-tulip-gold/30"
     }`;
 
   return (
@@ -170,7 +162,8 @@ export function ContactSection() {
         {/* Form card */}
         <div
           ref={ref}
-          className="bg-white rounded-2xl border border-tulip-gold/20 shadow-gold p-8 md:p-10"
+          className="bg-white rounded-2xl border-t-2 border border-tulip-gold/40 shadow-gold p-8 md:p-10"
+          style={{ borderTopColor: "oklch(0.76 0.16 65 / 0.5)" }}
         >
           {status === "success" && (
             <div
@@ -355,7 +348,7 @@ export function ContactSection() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-4 rounded-lg font-body font-medium text-sm tracking-[0.12em] uppercase bg-tulip-gold text-tulip-brown hover:bg-tulip-gold-dark disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 glow-gold hover:-translate-y-0.5 mt-2"
+              className="w-full py-4 rounded-lg font-body font-semibold text-sm tracking-[0.14em] uppercase bg-tulip-gold text-tulip-brown hover:bg-tulip-gold-dark disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 glow-gold hover:-translate-y-0.5 mt-2"
               data-ocid="contact.submit_button"
             >
               {submitting ? (

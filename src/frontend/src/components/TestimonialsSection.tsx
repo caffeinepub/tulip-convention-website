@@ -38,7 +38,7 @@ function StarDisplay({ rating }: { rating: number }) {
           width="14"
           height="14"
           viewBox="0 0 16 16"
-          fill={k <= rating ? "oklch(0.73 0.1 70)" : "rgba(255,255,255,0.25)"}
+          fill={k <= rating ? "oklch(0.76 0.16 65)" : "rgba(255,255,255,0.25)"}
           aria-hidden="true"
         >
           <path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.35l-3.71 2.2.71-4.13L2 5.5l4.15-.75z" />
@@ -94,7 +94,7 @@ export function TestimonialsSection() {
     <section
       id="testimonials"
       className="py-24 md:py-32"
-      style={{ backgroundColor: "oklch(0.22 0.08 10)" }}
+      style={{ backgroundColor: "oklch(0.19 0.085 8)" }}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         {/* Heading */}
@@ -104,7 +104,9 @@ export function TestimonialsSection() {
           </p>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-light text-tulip-cream">
             What Guests{" "}
-            <span className="italic font-semibold text-tulip-gold">Say</span>
+            <span className="italic font-semibold text-tulip-gold text-glow-gold">
+              Say
+            </span>
           </h2>
         </div>
 
@@ -121,15 +123,19 @@ export function TestimonialsSection() {
                 key={`${review.name}-${currentIndex}-${i}`}
                 className="animate-fade-in-scale border rounded-2xl p-8 flex flex-col"
                 style={{
-                  backgroundColor: "oklch(0.28 0.09 8)",
-                  borderColor: "oklch(0.73 0.1 70 / 0.22)",
+                  backgroundColor: "oklch(0.25 0.095 6)",
+                  borderColor: "oklch(0.76 0.16 65 / 0.3)",
                   animationFillMode: "both",
                   animationDelay: `${i * 0.1}s`,
                 }}
                 data-ocid={`testimonials.item.${i + 1}`}
               >
                 <div
-                  className="font-display text-7xl leading-none text-tulip-gold mb-4 opacity-60"
+                  className="font-display text-8xl leading-none text-tulip-gold mb-4"
+                  style={{
+                    textShadow:
+                      "0 0 20px rgba(220,175,60,0.7), 0 0 40px rgba(220,175,60,0.3)",
+                  }}
                   aria-hidden="true"
                 >
                   &ldquo;
@@ -139,7 +145,7 @@ export function TestimonialsSection() {
                 </p>
                 <div
                   className="mt-8 pt-6 border-t"
-                  style={{ borderColor: "oklch(0.73 0.1 70 / 0.2)" }}
+                  style={{ borderColor: "oklch(0.76 0.16 65 / 0.22)" }}
                 >
                   <StarDisplay rating={review.rating} />
                   <div className="mt-3">
@@ -181,8 +187,12 @@ export function TestimonialsSection() {
                     height: "6px",
                     backgroundColor:
                       i === currentIndex
-                        ? "oklch(0.73 0.1 70)"
-                        : "oklch(0.73 0.1 70 / 0.35)",
+                        ? "oklch(0.76 0.16 65)"
+                        : "oklch(0.76 0.16 65 / 0.35)",
+                    boxShadow:
+                      i === currentIndex
+                        ? "0 0 8px rgba(220,175,60,0.8)"
+                        : "none",
                   }}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />

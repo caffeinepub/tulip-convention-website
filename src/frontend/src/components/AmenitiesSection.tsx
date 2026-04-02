@@ -23,30 +23,61 @@ export function AmenitiesSection() {
             Everything You Need
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-light text-tulip-mauve">
-            World-Class <span className="italic font-semibold">Amenities</span>
+            World-Class{" "}
+            <span
+              className="italic font-semibold text-glow-gold"
+              style={{ color: "oklch(0.42 0.12 8)" }}
+            >
+              Amenities
+            </span>
           </h2>
         </div>
 
-        {/* Pill badges */}
-        <div ref={ref} className="flex flex-wrap justify-center gap-3">
-          {amenities.map((item, i) => (
-            <div
-              key={item.label}
-              className="group flex items-center gap-2.5 px-5 py-3 rounded-full border border-tulip-gold/30 bg-white hover:border-tulip-gold hover:bg-tulip-gold/8 hover:shadow-gold transition-all duration-250 cursor-default animate-counter-up"
-              style={{
-                animationDelay: `${i * 0.08}s`,
-                animationFillMode: "both",
-              }}
-              data-ocid={`amenities.item.${i + 1}`}
-            >
-              <span className="text-xl" role="img" aria-label={item.label}>
-                {item.icon}
-              </span>
-              <span className="font-body text-sm font-medium text-foreground/75 group-hover:text-tulip-mauve transition-colors">
-                {item.label}
-              </span>
-            </div>
-          ))}
+        {/* Subtle radial glow behind pills */}
+        <div className="relative">
+          <div
+            className="absolute inset-0 pointer-events-none pulse-gold"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 60% at 50% 50%, oklch(0.76 0.16 65 / 0.06) 0%, transparent 70%)",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Pill badges */}
+          <div
+            ref={ref}
+            className="flex flex-wrap justify-center gap-3 relative z-10"
+          >
+            {amenities.map((item, i) => (
+              <div
+                key={item.label}
+                className="group flex items-center gap-2.5 px-5 py-3 rounded-full border border-tulip-gold/30 bg-white hover:border-tulip-gold hover:shadow-gold transition-all duration-300 cursor-default animate-counter-up"
+                style={{
+                  animationDelay: `${i * 0.08}s`,
+                  animationFillMode: "both",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background =
+                    "oklch(0.76 0.16 65 / 0.12)";
+                  (e.currentTarget as HTMLElement).style.borderColor =
+                    "oklch(0.76 0.16 65 / 0.8)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "";
+                  (e.currentTarget as HTMLElement).style.borderColor = "";
+                }}
+                data-ocid={`amenities.item.${i + 1}`}
+              >
+                <span className="text-xl" role="img" aria-label={item.label}>
+                  {item.icon}
+                </span>
+                <span className="font-body text-sm font-medium text-foreground/75 group-hover:text-tulip-mauve transition-colors">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Punchy tagline */}

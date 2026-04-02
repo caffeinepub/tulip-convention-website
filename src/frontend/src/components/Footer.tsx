@@ -21,14 +21,14 @@ export function Footer() {
   return (
     <footer
       className="text-tulip-cream"
-      style={{ backgroundColor: "oklch(0.18 0.065 12)" }}
+      style={{ backgroundColor: "oklch(0.15 0.07 10)" }}
     >
       {/* Decorative top line */}
       <div
         className="h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, oklch(0.73 0.1 70 / 0.5), transparent)",
+            "linear-gradient(90deg, transparent, oklch(0.76 0.16 65 / 0.6), transparent)",
         }}
         aria-hidden="true"
       />
@@ -40,12 +40,12 @@ export function Footer() {
             <div className="flex items-center gap-2.5 mb-4">
               <span
                 className="text-xl"
-                style={{ filter: "drop-shadow(0 0 6px rgba(200,163,90,0.6))" }}
+                style={{ filter: "drop-shadow(0 0 8px rgba(220,175,60,0.8))" }}
               >
                 🌷
               </span>
               <div className="flex flex-col leading-none">
-                <span className="font-display text-base font-semibold text-tulip-gold tracking-widest">
+                <span className="font-display text-base font-bold text-tulip-gold tracking-[0.35em] text-glow-gold">
                   TULIP
                 </span>
                 <span className="font-body text-[9px] text-tulip-cream/65 tracking-[0.2em] uppercase">
@@ -53,14 +53,14 @@ export function Footer() {
                 </span>
               </div>
             </div>
-            <p className="font-display text-sm italic text-tulip-cream/70 mb-5">
+            <p className="font-accent text-lg text-tulip-cream/75 mb-5">
               Your Dream Event Starts Here
             </p>
             <div className="flex gap-2.5">
               <button
                 type="button"
                 aria-label="Facebook"
-                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold transition-all"
+                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
                 data-ocid="footer.link"
               >
                 <SiFacebook size={14} />
@@ -68,7 +68,7 @@ export function Footer() {
               <button
                 type="button"
                 aria-label="Instagram"
-                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold transition-all"
+                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
                 data-ocid="footer.link"
               >
                 <SiInstagram size={14} />
@@ -76,7 +76,7 @@ export function Footer() {
               <button
                 type="button"
                 aria-label="YouTube"
-                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold transition-all"
+                className="p-2 rounded-sm border border-tulip-cream/25 text-tulip-cream/70 hover:border-tulip-gold hover:text-tulip-gold hover:shadow-gold transition-all duration-300"
                 data-ocid="footer.link"
               >
                 <SiYoutube size={14} />
@@ -86,7 +86,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-body text-[10px] tracking-[0.25em] uppercase text-tulip-gold/80 mb-5">
+            <h4 className="font-body text-[10px] tracking-[0.25em] uppercase text-tulip-gold/85 mb-5">
               Quick Links
             </h4>
             <ul className="space-y-2.5">
@@ -95,7 +95,7 @@ export function Footer() {
                   <button
                     type="button"
                     onClick={() => handleNavClick(link.href)}
-                    className="font-body text-sm text-tulip-cream/70 hover:text-tulip-gold transition-colors text-left"
+                    className="font-body text-sm text-tulip-cream/75 hover:text-tulip-gold transition-colors text-left"
                     data-ocid="footer.link"
                   >
                     {link.label}
@@ -107,7 +107,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-body text-[10px] tracking-[0.25em] uppercase text-tulip-gold/80 mb-5">
+            <h4 className="font-body text-[10px] tracking-[0.25em] uppercase text-tulip-gold/85 mb-5">
               Contact
             </h4>
             <div className="space-y-3">
@@ -167,11 +167,11 @@ export function Footer() {
       {/* Bottom bar */}
       <div
         className="border-t"
-        style={{ borderColor: "oklch(0.73 0.1 70 / 0.15)" }}
+        style={{ borderColor: "oklch(0.76 0.16 65 / 0.18)" }}
       >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-4">
-            <p className="font-body text-xs text-tulip-cream/55">
+            <p className="font-body text-xs text-tulip-cream/60">
               © {year} Tulip Convention and Banquet.
             </p>
             <a
@@ -182,13 +182,13 @@ export function Footer() {
               Admin
             </a>
           </div>
-          <p className="font-body text-xs text-tulip-cream/45">
+          <p className="font-body text-xs text-tulip-cream/50">
             Built with ❤️ using{" "}
             <a
               href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-tulip-cream/70 transition-colors underline underline-offset-2"
+              className="hover:text-tulip-cream/75 transition-colors underline underline-offset-2"
             >
               caffeine.ai
             </a>

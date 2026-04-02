@@ -46,9 +46,9 @@ export function Navbar() {
       }`}
       style={{
         backgroundColor: scrolled
-          ? "oklch(0.24 0.07 12 / 0.97)"
+          ? "oklch(0.16 0.07 10 / 0.98)"
           : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
+        backdropFilter: scrolled ? "blur(14px)" : "none",
       }}
     >
       <nav
@@ -67,12 +67,12 @@ export function Navbar() {
             <span
               className="text-xl"
               aria-hidden="true"
-              style={{ filter: "drop-shadow(0 0 6px rgba(200,163,90,0.7))" }}
+              style={{ filter: "drop-shadow(0 0 8px rgba(220,175,60,0.85))" }}
             >
               🌷
             </span>
             <div className="flex flex-col leading-none">
-              <span className="font-display text-base font-semibold text-tulip-gold tracking-widest">
+              <span className="font-display text-base font-bold text-tulip-gold tracking-[0.35em] text-glow-gold">
                 TULIP
               </span>
               <span className="font-body text-[9px] text-tulip-cream/70 tracking-[0.22em] uppercase">
@@ -90,7 +90,7 @@ export function Navbar() {
                   onClick={() => handleNavClick(link.href)}
                   className={`px-3 py-2 font-body text-xs tracking-[0.1em] uppercase font-medium rounded transition-colors relative group ${
                     activeSection === link.href.slice(1)
-                      ? "text-tulip-gold"
+                      ? "text-tulip-gold text-glow-gold"
                       : "text-tulip-cream/85 hover:text-tulip-cream"
                   }`}
                   data-ocid="nav.link"
@@ -108,7 +108,7 @@ export function Navbar() {
                     style={{
                       boxShadow:
                         activeSection === link.href.slice(1)
-                          ? "0 0 8px rgba(200,163,90,0.8)"
+                          ? "0 0 10px rgba(220,175,60,0.9)"
                           : "none",
                     }}
                   />
@@ -121,7 +121,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => handleNavClick("#contact")}
-            className="hidden lg:block px-5 py-2.5 rounded-sm font-body font-medium text-xs tracking-[0.1em] uppercase bg-tulip-gold text-tulip-brown hover:bg-tulip-gold-dark transition-colors glow-gold"
+            className="hidden lg:block px-5 py-2.5 rounded-sm font-body font-semibold text-xs tracking-[0.12em] uppercase bg-tulip-gold text-tulip-brown hover:bg-tulip-gold-dark transition-colors glow-gold"
             data-ocid="nav.primary_button"
           >
             Book Now
@@ -146,9 +146,9 @@ export function Navbar() {
         <div
           className="lg:hidden border-t"
           style={{
-            backgroundColor: "oklch(0.22 0.07 12 / 0.97)",
-            borderColor: "oklch(0.73 0.1 70 / 0.25)",
-            backdropFilter: "blur(12px)",
+            backgroundColor: "oklch(0.16 0.07 10 / 0.98)",
+            borderColor: "oklch(0.76 0.16 65 / 0.25)",
+            backdropFilter: "blur(14px)",
           }}
         >
           <ul className="px-6 py-4 space-y-1">
@@ -159,7 +159,7 @@ export function Navbar() {
                   onClick={() => handleNavClick(link.href)}
                   className={`block w-full text-left px-3 py-3 rounded font-body text-sm font-medium tracking-wide transition-colors ${
                     activeSection === link.href.slice(1)
-                      ? "text-tulip-gold"
+                      ? "text-tulip-gold text-glow-gold"
                       : "text-tulip-cream/85 hover:text-tulip-cream"
                   }`}
                   data-ocid="nav.link"
@@ -172,7 +172,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => handleNavClick("#contact")}
-                className="block w-full text-center px-5 py-3 rounded-sm bg-tulip-gold text-tulip-brown font-body font-medium text-sm tracking-wider uppercase glow-gold"
+                className="block w-full text-center px-5 py-3 rounded-sm bg-tulip-gold text-tulip-brown font-body font-semibold text-sm tracking-wider uppercase glow-gold"
                 data-ocid="nav.primary_button"
               >
                 Book Now
